@@ -1,13 +1,12 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:form_field_validator/form_field_validator.dart';
-import 'package:submissionfundamental/ui/home_page.dart';
+import 'package:submissionfundamental/ui/main_page.dart';
 
 class LoginPage extends StatefulWidget {
   static const routeName = '/login_page';
 
   const LoginPage({Key? key}) : super(key: key);
-
 
   @override
   _LoginFormValidationState createState() => _LoginFormValidationState();
@@ -39,11 +38,12 @@ class _LoginFormValidationState extends State<LoginPage> {
       ),
       body: SingleChildScrollView(
         child: Form(
-          autovalidateMode: AutovalidateMode.always, key: formkey,
+          autovalidateMode: AutovalidateMode.always,
+          key: formkey,
           child: Column(
             children: <Widget>[
               Padding(
-                padding: const EdgeInsets.only(top: 60.0,bottom:25.0),
+                padding: const EdgeInsets.only(top: 60.0, bottom: 25.0),
                 child: Center(
                   child: SizedBox(
                       width: 200,
@@ -80,10 +80,10 @@ class _LoginFormValidationState extends State<LoginPage> {
                           errorText: "Password should be atleast 6 characters"),
                       MaxLengthValidator(18,
                           errorText:
-                          "Password should not be greater than 18 characters")
+                              "Password should not be greater than 18 characters")
                     ])
-                  //validatePassword,        //Function to check validation
-                ),
+                    //validatePassword,        //Function to check validation
+                    ),
               ),
               FlatButton(
                 onPressed: () {
@@ -107,8 +107,10 @@ class _LoginFormValidationState extends State<LoginPage> {
                       var password = passController.text;
                       if (username.contains('wisnu@gmail.com') &&
                           password.contains('dicoding')) {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (_) => const HomePage()));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (_) => const MainPage()));
                         if (kDebugMode) {
                           print("Validated");
                         }

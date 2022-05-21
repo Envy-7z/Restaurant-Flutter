@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:submissionfundamental/model/local_restauran.dart';
-import 'package:submissionfundamental/ui/detail_page.dart';
-import 'package:submissionfundamental/ui/home_page.dart';
 import 'package:submissionfundamental/ui/login_page.dart';
+import 'package:submissionfundamental/ui/main_page.dart';
+import 'package:submissionfundamental/ui/restodetail_page.dart';
 import 'package:submissionfundamental/utils/styles.dart';
+import 'package:submissionfundamental/ui/restosearch_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -29,18 +29,26 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primaryColor: primaryColor,
         scaffoldBackgroundColor: primaryColor,
-        textTheme: myTextTheme, colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.blue).copyWith(secondary: Colors.blue),
+        textTheme: myTextTheme,
+        colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.blue)
+            .copyWith(secondary: Colors.blue),
       ),
       initialRoute: LoginPage.routeName,
       routes: {
-        HomePage.routeName: (context) => const HomePage(),
-        DetailPage.routeName: (context) => DetailPage(
-          restaurant: ModalRoute.of(context)?.settings.arguments as Restaurant,
-        ),
-        LoginPage.routeName : (context) => const LoginPage(),
+        // HomePage.routeName: (context) => const HomePage(), --> ini submission 1
+        // DetailPage.routeName: (context) => DetailPage( --> ini submission 1
+        //   restaurant: ModalRoute.of(context)?.settings.arguments as Restaurant,
+        // ), --> ini submission 1
+        // LoginPage.routeName : (context) => const LoginPage(), --> ini submission 1
+
+        MainPage.routeName: (context) => const MainPage(),
+        SearchRestoPage.routeName: (context) => const SearchRestoPage(),
+        DetailRestoPage.routeName: (context) => DetailRestoPage(
+            id: ModalRoute.of(context)!.settings.arguments == null
+                ? 'null'
+                : ModalRoute.of(context)!.settings.arguments as String),
+        LoginPage.routeName: (context) => const LoginPage()
       },
     );
   }
 }
-
-

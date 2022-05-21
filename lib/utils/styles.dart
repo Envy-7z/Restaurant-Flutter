@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-const Color primaryColor = Color(0xFF0e1213);
+const Color primaryColor = Colors.white;
 const Color secondaryColor = Color(0xFF282c2f);
 const Color thirdColor = Color(0xFF363b40);
 
 final TextTheme myTextTheme = TextTheme(
   headline1: GoogleFonts.poppins(
-    fontSize: 93, fontWeight: FontWeight.w300, letterSpacing: -1.5,),
+    fontSize: 93,
+    fontWeight: FontWeight.w300,
+    letterSpacing: -1.5,
+  ),
   headline2: GoogleFonts.poppins(
       fontSize: 58, fontWeight: FontWeight.w300, letterSpacing: -0.5),
   headline3: GoogleFonts.poppins(fontSize: 46, fontWeight: FontWeight.w400),

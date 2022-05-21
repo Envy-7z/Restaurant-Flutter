@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:submissionfundamental/model/local_restauran.dart';
+import 'package:submissionfundamental/data/model/local_restauran.dart';
 import 'package:submissionfundamental/ui/detail_page.dart';
 import 'package:submissionfundamental/utils/styles.dart';
 
@@ -20,7 +20,7 @@ class HomePage extends StatelessWidget {
         builder: (context, snapshot) {
           try {
             final LocalRestaurant localRestaurant =
-            localRestaurantFromJson(snapshot.data!);
+                localRestaurantFromJson(snapshot.data!);
             return ListView.builder(
               itemCount: localRestaurant.restaurants.length,
               itemBuilder: (context, index) {

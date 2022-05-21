@@ -1,9 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:submissionfundamental/model/local_restauran.dart';
+import 'package:submissionfundamental/data/model/local_restauran.dart';
 import 'package:submissionfundamental/utils/styles.dart';
-
 
 class DetailPage extends StatelessWidget {
   static const routeName = '/restaurant_detail';
@@ -104,8 +103,8 @@ class DetailPage extends StatelessWidget {
                   direction: Axis.horizontal,
                   allowHalfRating: true,
                   itemCount: 5,
-                  itemPadding:
-                  const EdgeInsets.symmetric(horizontal: 4.0, vertical: 16.0),
+                  itemPadding: const EdgeInsets.symmetric(
+                      horizontal: 4.0, vertical: 16.0),
                   ratingWidget: RatingWidget(
                     full: const Icon(
                       Icons.star,
@@ -137,8 +136,20 @@ class DetailPage extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text('Description', style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.w600,),),
-                    Text(restaurant.description, style: const TextStyle(color: Colors.white,),),
+                    const Text(
+                      'Description',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    Text(
+                      restaurant.description,
+                      style: const TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -171,20 +182,21 @@ class DetailPage extends StatelessWidget {
                       child: Row(
                         children: restaurant.menus.foods
                             .map((food) => Container(
-                          margin: const EdgeInsets.symmetric(
-                              horizontal: 4.0),
-                          decoration: BoxDecoration(
-                            color: thirdColor,
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text(
-                              food.name,
-                              style: const TextStyle(color: Colors.white),
-                            ),
-                          ),
-                        ))
+                                  margin: const EdgeInsets.symmetric(
+                                      horizontal: 4.0),
+                                  decoration: BoxDecoration(
+                                    color: thirdColor,
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Text(
+                                      food.name,
+                                      style:
+                                          const TextStyle(color: Colors.white),
+                                    ),
+                                  ),
+                                ))
                             .toList(),
                       ),
                     ),
@@ -210,20 +222,20 @@ class DetailPage extends StatelessWidget {
                       child: Row(
                         children: restaurant.menus.drinks
                             .map((drink) => Container(
-                          margin: const EdgeInsets.symmetric(
-                              horizontal: 4.0),
-                          decoration: BoxDecoration(
-                            color: thirdColor,
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text(
-                              drink.name,
-                              style: TextStyle(color: Colors.white),
-                            ),
-                          ),
-                        ))
+                                  margin: const EdgeInsets.symmetric(
+                                      horizontal: 4.0),
+                                  decoration: BoxDecoration(
+                                    color: thirdColor,
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Text(
+                                      drink.name,
+                                      style: TextStyle(color: Colors.white),
+                                    ),
+                                  ),
+                                ))
                             .toList(),
                       ),
                     ),
