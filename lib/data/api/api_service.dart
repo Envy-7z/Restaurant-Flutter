@@ -4,8 +4,6 @@ import 'package:submissionfundamental/data/model/restauran_response.dart';
 
 class ApiService {
   static const String _baseUrl = "https://restaurant-api.dicoding.dev/";
-  static const String imgUrl =
-      'https://restaurant-api.dicoding.dev/images/medium/';
 
   Future<RestoList> restaurantList() async {
     final response = await http.get(Uri.parse(_baseUrl + "list"));

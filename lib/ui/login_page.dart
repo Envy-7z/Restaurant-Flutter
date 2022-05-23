@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 import 'package:submissionfundamental/ui/main_page.dart';
+import 'package:submissionfundamental/widget/nav_bar.dart';
 
 class LoginPage extends StatefulWidget {
   static const routeName = '/login_page';
@@ -17,6 +18,16 @@ class _LoginFormValidationState extends State<LoginPage> {
 
   final userController = TextEditingController();
   final passController = TextEditingController();
+
+  @override
+  void dispose() {
+    userController.clear();
+    passController.clear();
+    userController.dispose();
+    passController.dispose();
+    super.dispose();
+  }
+
   String? validatePassword(String value) {
     if (value.isEmpty) {
       return "* Required";
@@ -85,7 +96,7 @@ class _LoginFormValidationState extends State<LoginPage> {
                     //validatePassword,        //Function to check validation
                     ),
               ),
-              FlatButton(
+              TextButton(
                 onPressed: () {
                   //TODO FORGOT PASSWORD SCREEN GOES HERE
                 },
@@ -100,17 +111,15 @@ class _LoginFormValidationState extends State<LoginPage> {
                 decoration: BoxDecoration(
                     color: Colors.blue,
                     borderRadius: BorderRadius.circular(20)),
-                child: FlatButton(
+                child: TextButton(
                   onPressed: () {
                     if (formkey.currentState!.validate()) {
                       var username = userController.text;
                       var password = passController.text;
                       if (username.contains('wisnu@gmail.com') &&
                           password.contains('dicoding')) {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (_) => const MainPage()));
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (_) => const NavBar()));
                         if (kDebugMode) {
                           print("Validated");
                         }

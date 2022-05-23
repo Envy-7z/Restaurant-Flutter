@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:submissionfundamental/provider/resto_provider.dart';
 import 'package:submissionfundamental/ui/restosearch_page.dart';
+import 'package:submissionfundamental/utils/result_state.dart';
 
 import '../widget/content_resto.dart';
 
@@ -26,7 +27,7 @@ class RestoPage extends StatelessWidget {
           ),
           // titleSpacing: 0,
           title: Text(
-            "Submission 2 Flutter",
+            "Submission 3 Flutter",
             style: Theme.of(context).textTheme.subtitle2,
           ),
           actions: const <Widget>[
@@ -42,11 +43,11 @@ class RestoPage extends StatelessWidget {
         ),
         body: Consumer<RestoProvider>(
           builder: (context, state, _) {
-            if (state.state == ResultState.Loading) {
+            if (state.state == ResultState.loading) {
               return const Center(
                 child: CircularProgressIndicator(),
               );
-            } else if (state.state == ResultState.HasData) {
+            } else if (state.state == ResultState.hasData) {
               return SafeArea(
                 child: Column(
                   children: <Widget>[
@@ -86,10 +87,11 @@ class RestoPage extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          const Text('Find the place you are going',   style: TextStyle(
-                            fontWeight: FontWeight.w300, // light
-                            fontStyle: FontStyle.italic, // italic),
-                      )),
+                          const Text('Find the place you are going',
+                              style: TextStyle(
+                                fontWeight: FontWeight.w300, // light
+                                fontStyle: FontStyle.italic, // italic),
+                              )),
                           IconButton(
                             onPressed: () {
                               Navigator.pushNamed(
@@ -145,11 +147,11 @@ class RestoPage extends StatelessWidget {
                   ],
                 ),
               );
-            } else if (state.state == ResultState.NoData) {
+            } else if (state.state == ResultState.noData) {
               return Center(
                 child: Text(state.message),
               );
-            } else if (state.state == ResultState.Error) {
+            } else if (state.state == ResultState.error) {
               return Center(
                   child: Column(
                 children: [

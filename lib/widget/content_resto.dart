@@ -5,7 +5,7 @@ import 'package:submissionfundamental/utils/styles.dart';
 
 class ContentResto extends StatelessWidget {
   final Restaurant resto;
-  const ContentResto({required this.resto});
+  const ContentResto({Key? key, required this.resto}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +14,7 @@ class ContentResto extends StatelessWidget {
         Navigator.pushNamed(
           context,
           DetailRestoPage.routeName,
-          arguments: resto.id,
+          arguments: resto,
         );
       },
       child: Column(children: <Widget>[

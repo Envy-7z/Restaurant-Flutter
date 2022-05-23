@@ -105,7 +105,7 @@ class BodySearch extends StatelessWidget {
       ),
       Consumer<SearchRestoProvider>(
         builder: (context, result, _) {
-          if (result.state == SearchState.NoQuery) {
+          if (result.state == SearchState.noQuery) {
             return (Center(
               child: Container(
                 padding: const EdgeInsets.only(top: 10),
@@ -121,9 +121,9 @@ class BodySearch extends StatelessWidget {
                 ),
               ),
             ));
-          } else if (result.state == SearchState.Loading) {
+          } else if (result.state == SearchState.loading) {
             return const Center(child: CircularProgressIndicator());
-          } else if (result.state == SearchState.HasData) {
+          } else if (result.state == SearchState.hasData) {
             return Expanded(
               child: ListView.builder(
                 itemCount: result.result.restaurants.length,
@@ -135,11 +135,11 @@ class BodySearch extends StatelessWidget {
                 },
               ),
             );
-          } else if (result.state == SearchState.NoData) {
+          } else if (result.state == SearchState.noData) {
             return const Center(
               child: Text('There is no list of restaurants you want'),
             );
-          } else if (result.state == SearchState.Error) {
+          } else if (result.state == SearchState.error) {
             return const Center(
               child: Text("Oops. Your internet connection is dead :( ..."),
             );

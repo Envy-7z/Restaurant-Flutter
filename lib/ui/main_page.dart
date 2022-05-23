@@ -17,8 +17,9 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-        create: (_) =>
-            RestoProvider(apiService: ApiService(), type: 'list', id: ''),
+        create: (_) => RestoProvider(
+              apiService: ApiService(),
+            ),
         child: const RestoPage());
   }
 }
