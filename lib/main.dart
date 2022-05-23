@@ -85,7 +85,7 @@ class MyApp extends StatelessWidget {
                 .copyWith(secondary: Colors.blue),
           ),
           navigatorKey: navigatorKey,
-          initialRoute: NavBar.routeName,
+          initialRoute: LoginPage.routeName,
           routes: {
             NavBar.routeName: (context) => NavBar(),
             MainPage.routeName: (context) => const MainPage(),
